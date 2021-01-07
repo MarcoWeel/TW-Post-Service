@@ -24,12 +24,14 @@ public class PostFileController {
 
         @Autowired
         private MinioService minioService;
+        
         @RolesAllowed({"ADMIN", "MEMBER"})
         @GetMapping("/files")
         public List<Item> testMinio() throws MinioException {
                 return minioService.list();
         }
 
+        @RolesAllowed({"ADMIN", "MEMBER"})
         @GetMapping("/files/{object}")
         public void getObject(@PathVariable("object") String object, HttpServletResponse response) throws MinioException, IOException {
                 InputStream inputStream = minioService.get(Path.of(object));
@@ -43,6 +45,7 @@ public class PostFileController {
                 IOUtils.copy(inputStream, response.getOutputStream());
                 response.flushBuffer();
         }
+
         @RolesAllowed({"ADMIN", "MEMBER"})
         @PostMapping("/files")
         public void addAttachement(@RequestParam("file") MultipartFile file) {
