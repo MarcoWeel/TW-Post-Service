@@ -9,7 +9,8 @@ import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
-@RequestMapping("/post")
+@RequestMapping("/posts")
+@CrossOrigin
 public class PostController {
     @Autowired
     private PostService service;

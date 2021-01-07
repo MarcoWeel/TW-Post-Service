@@ -18,7 +18,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 @RestController
-@RequestMapping("/events")
+@RequestMapping("/posts")
 @CrossOrigin
 public class PostFileController {
 
