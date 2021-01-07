@@ -18,8 +18,7 @@ public class Post {
     @Id
     @GeneratedValue
     private int id;
-    private int UserId;
-    private int LikeId;
     private String Title;
     private String Description;
+    private String FileURL;
 }
