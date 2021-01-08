@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/posts")
-@CrossOrigin
+@CrossOrigin("*")
 public class PostFileController {
 
         @Autowired

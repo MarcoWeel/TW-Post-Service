@@ -10,14 +10,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/posts")
-@CrossOrigin
+@CrossOrigin("*")
 public class PostController {
     @Autowired
     private PostService service;
 
     @RolesAllowed({"ADMIN", "MEMBER"})
     @PostMapping("")
-    public Post addPost(@RequestBody Post eventImage){return service.SavePost(eventImage);}
+    public Post addPost(@RequestBody Post post){return service.SavePost(post);}
 
     @GetMapping("/{Id}")
     public Post findPostById(@PathVariable int Id){return service.GetPostById(Id);}
